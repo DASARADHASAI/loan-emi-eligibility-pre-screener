@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LoanLens — instant loan pre-eligibility for call-centre agents</title>
+  <meta name="description" content="LoanLens tells your agents in one second whether an applicant can qualify for a loan — and if not, the largest loan they can get. Powered by the FOIR rule." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 22a10 10 0 1 1 20 0' fill='none' stroke='%23c96442' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='22' r='2.5' fill='%233f8f5b'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <!-- top navigation -->
+  <header class="site-nav">
+    <div class="site-nav__inner">
+      <a class="brand" href="/">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M6 22a10 10 0 1 1 20 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="22" r="2.5" fill="#ffffff"/></svg>
+        </span>
+        <span class="brand__name">LoanLens</span>
+      </a>
+      <nav class="site-nav__links" aria-label="Primary">
+        <a class="nav-link" href="#how">How it works</a>
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#foir">What is FOIR</a>
+        <a class="nav-link" href="/login">Log in</a>
+        <a class="nav-cta" href="/signup">Get started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- hero -->
+    <section class="hero">
+      <div class="hero__copy">
+        <span class="badge">Banking &amp; Lending · Pre-credit check</span>
+        <h1>Know in one second if they <em>can</em> qualify.</h1>
+        <p>LoanLens screens a loan applicant's finances against the bank's <strong>FOIR</strong> rule and returns an instant <em>Eligible · Borderline · Not&nbsp;eligible</em> verdict — with a reason your agent can read out. No more wasting calls on applicants who could never qualify.</p>
+        <div class="hero__cta">
+          <a class="btn btn--lg" href="/signup">Get started free
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost btn--lg" href="/login">Log in</a>
+        </div>
+        <p class="hero__note">Free for your team · no card required · runs in your browser</p>
+      </div>
+
+      <!-- product preview -->
+      <div class="hero__visual" aria-hidden="true">
+        <div class="preview-card glass">
+          <div class="preview-card__head"><span>FOIR reading</span><span class="mono">policy 50 / 55</span></div>
+          <div class="preview-dial" style="--verdict: var(--eligible)">
+            <svg viewBox="0 0 240 240">
+              <path class="gauge-track" d="M 56.36 183.64 A 90 90 0 1 1 183.64 183.64" pathLength="100" />
+              <path class="gauge-zone zone-green" d="M 56.36 183.64 A 90 90 0 1 1 183.64 183.64" pathLength="100" style="stroke-dasharray:50 100;stroke-dashoffset:0" />
+              <path class="gauge-zone zone-amber" d="M 56.36 183.64 A 90 90 0 1 1 183.64 183.64" pathLength="100" style="stroke-dasharray:5 100;stroke-dashoffset:-50" />
+              <path class="gauge-zone zone-red" d="M 56.36 183.64 A 90 90 0 1 1 183.64 183.64" pathLength="100" style="stroke-dasharray:45 100;stroke-dashoffset:-55" />
+              <path class="gauge-progress" d="M 56.36 183.64 A 90 90 0 1 1 183.64 183.64" pathLength="100" style="stroke-dashoffset:73.4" />
+            </svg>
+            <div class="preview-dial__center"><span class="preview-dial__val">26.6<span>%</span></span><span class="preview-dial__lbl">FOIR</span></div>
+          </div>
+          <div class="preview-card__chip">✓ Eligible</div>
+          <div class="preview-card__reason">FOIR 26.6% is within the 50% limit — pre-eligible.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- how it works -->
+    <section class="section" id="how">
+      <div class="section__head">
+        <span class="eyebrow">How it works</span>
+        <h2>Three steps, about five seconds.</h2>
+        <p class="section__lead">Your agent stays on the call the whole time.</p>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step__num">1</span>
+          <h3 class="step__title">Enter the financials</h3>
+          <p class="step__desc">Monthly income, existing EMIs, the loan amount, interest rate and tenure. Pick a product and the rate fills itself.</p>
+        </li>
+        <li class="step">
+          <span class="step__num">2</span>
+          <h3 class="step__title">Read the verdict</h3>
+          <p class="step__desc">LoanLens computes the new EMI, works out the FOIR, and the dial lands on Eligible, Borderline or Not eligible — with a line to read aloud.</p>
+        </li>
+        <li class="step">
+          <span class="step__num">3</span>
+          <h3 class="step__title">Make a counter-offer</h3>
+          <p class="step__desc">If it's a no, LoanLens shows the largest loan they <em>can</em> get, or the tenure that would qualify — turning the rejection into a sale.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- features -->
+    <section class="section section--alt" id="features">
+      <div class="section__head">
+        <span class="eyebrow">Features</span>
+        <h2>Built for the watch-outs that trip up loan tools.</h2>
+      </div>
+      <div class="features">
+        <article class="feature">
+          <span class="feature__icon">⚡</span>
+          <h3 class="feature__title">Instant verdict</h3>
+          <p class="feature__desc">Eligible / Borderline / Not eligible in one click, driven by the bank's FOIR bands.</p>
+        </article>
+        <article class="feature">
+          <span class="feature__icon">🧮</span>
+          <h3 class="feature__title">Accurate EMI</h3>
+          <p class="feature__desc">Reducing-balance formula with precise decimal maths and banker's rounding — matches core-banking systems.</p>
+        </article>
+        <article class="feature">
+          <span class="feature__icon">🎯</span>
+          <h3 class="feature__title">Smart counter-offer</h3>
+          <p class="feature__desc">Not eligible? See the largest loan they qualify for, or the tenure that gets them there.</p>
+        </article>
+        <article class="feature">
+          <span class="feature__icon">🎚️</span>
+          <h3 class="feature__title">Live what-if</h3>
+          <p class="feature__desc">Drag the loan amount and tenure and watch the dial move in real time on the call.</p>
+        </article>
+        <article class="feature">
+          <span class="feature__icon">🗣️</span>
+          <h3 class="feature__title">Read-out reason codes</h3>
+          <p class="feature__desc">Every verdict comes with a plain sentence the agent can say to the customer.</p>
+        </article>
+        <article class="feature">
+          <span class="feature__icon">🛡️</span>
+          <h3 class="feature__title">Safe by design</h3>
+          <p class="feature__desc">Zero and negative inputs are caught before any maths — no crashes, no odd numbers.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- what is FOIR -->
+    <section class="section" id="foir">
+      <div class="foir-band glass">
+        <div class="foir-band__copy">
+          <span class="eyebrow">What is FOIR?</span>
+          <h2>Fixed Obligation to Income Ratio.</h2>
+          <p>The share of a person's monthly income already committed to loan EMIs. A bank pre-approves when this stays under its limit — because too much of the salary is already spoken for.</p>
+          <p class="foir-formula"><b>FOIR</b> = (existing EMIs + new loan EMI) ÷ monthly income</p>
+          <p class="section__lead">Example: income ₹1,00,000, total EMIs ₹47,000 → FOIR = 47% → within a 50% limit → <b>eligible</b>.</p>
+        </div>
+        <div class="bands">
+          <div class="band band--green"><span class="band__k">≤ 50%</span><span class="band__v">Eligible</span></div>
+          <div class="band band--amber"><span class="band__k">50–55%</span><span class="band__v">Borderline · review</span></div>
+          <div class="band band--red"><span class="band__k">&gt; 55%</span><span class="band__v">Not eligible</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <h2>Stop losing time on calls that can't convert.</h2>
+      <p>Create a free account and screen your first applicant in under a minute.</p>
+      <a class="btn btn--lg" href="/signup">Get started free
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><path d="M6 22a10 10 0 1 1 20 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="22" r="2.5" fill="#ffffff"/></svg>
+      </span>
+      <span class="brand__name">LoanLens</span>
+    </div>
+    <p>FOIR-based loan pre-eligibility · a demo project. Not a lending decision.</p>
+  </footer>
+</body>
+</html>

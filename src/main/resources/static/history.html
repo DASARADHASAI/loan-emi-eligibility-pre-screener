@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard — LoanLens</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 22a10 10 0 1 1 20 0' fill='none' stroke='%23c96442' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='22' r='2.5' fill='%233f8f5b'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <a class="brand" href="/">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M6 22a10 10 0 1 1 20 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="22" r="2.5" fill="#ffffff"/></svg>
+        </span>
+        <span>
+          <span class="brand__name">LoanLens</span><br />
+          <span class="brand__sub">Retail Lending · Eligibility</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="/app">Screener</a>
+        <a class="nav-link" href="/history" aria-current="page">Dashboard</a>
+        <span class="who" id="who"></span>
+        <form method="post" action="/logout" style="display:inline">
+          <button class="nav-btn" type="submit">Sign out</button>
+        </form>
+      </nav>
+    </header>
+
+    <section class="lede">
+      <p class="eyebrow">Your activity</p>
+      <h1>Screening dashboard.</h1>
+      <p>Every applicant you've screened, with the numbers that matter — your approval rate and where the borderline cases are piling up.</p>
+    </section>
+
+    <div class="tiles">
+      <div class="glass tile"><div class="tile__k">Total screened</div><div class="tile__v" id="t-total">0</div></div>
+      <div class="glass tile"><div class="tile__k">Approval rate</div><div class="tile__v" id="t-rate">0<span class="tile__u">%</span></div></div>
+      <div class="glass tile"><div class="tile__k">Avg FOIR</div><div class="tile__v" id="t-avg">0<span class="tile__u">%</span></div></div>
+      <div class="glass tile tile--eligible"><div class="tile__k">Eligible</div><div class="tile__v" id="t-elig">0</div></div>
+      <div class="glass tile tile--borderline"><div class="tile__k">Borderline</div><div class="tile__v" id="t-brd">0</div></div>
+      <div class="glass tile tile--reject"><div class="tile__k">Not eligible</div><div class="tile__v" id="t-rej">0</div></div>
+    </div>
+
+    <section class="glass panel">
+      <div class="panel__head">
+        <span class="panel__title">Recent screenings</span>
+        <span class="panel__hint">latest 100</span>
+      </div>
+      <div class="tablewrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th class="num">Income</th>
+              <th class="num">Loan</th>
+              <th class="num">Rate</th>
+              <th class="num">EMI</th>
+              <th class="num">FOIR</th>
+              <th>Verdict</th>
+            </tr>
+          </thead>
+          <tbody id="hist-rows">
+            <tr><td colspan="7" class="table-empty">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="/js/history.js"></script>
+</body>
+</html>

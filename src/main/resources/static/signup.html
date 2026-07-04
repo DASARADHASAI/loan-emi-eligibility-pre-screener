@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign up — LoanLens</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 22a10 10 0 1 1 20 0' fill='none' stroke='%23c96442' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='22' r='2.5' fill='%233f8f5b'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body class="auth-page">
+  <a class="brand auth-brand" href="/">
+    <span class="brand__mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32"><path d="M6 22a10 10 0 1 1 20 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="22" r="2.5" fill="#ffffff"/></svg>
+    </span>
+    <span class="brand__name">LoanLens</span>
+  </a>
+
+  <main class="auth-wrap">
+    <div class="glass auth-card">
+      <h2>Create your account</h2>
+      <p class="auth-sub">Free for your team — start screening in a minute.</p>
+
+      <div class="auth-note auth-note--err" id="err" hidden></div>
+
+      <form method="post" action="/signup" class="auth-form">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required placeholder="Asha Rao" />
+        </div>
+        <div class="field">
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@bank.com" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="new-password" required minlength="6" placeholder="At least 6 characters" />
+        </div>
+        <button class="btn" type="submit">Create account</button>
+      </form>
+
+      <p class="auth-switch">Already have an account? <a href="/login">Log in</a></p>
+    </div>
+  </main>
+
+  <script>
+    const err = document.getElementById("err");
+    const msg = {
+      exists: "That email already has an account. Try logging in.",
+      weak: "Password must be at least 6 characters.",
+      missing: "Please fill in your name and email.",
+    };
+    const e = new URLSearchParams(location.search).get("error");
+    if (e && msg[e]) { err.textContent = msg[e]; err.hidden = false; }
+  </script>
+</body>
+</html>
