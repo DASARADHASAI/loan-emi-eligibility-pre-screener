@@ -6,6 +6,9 @@ Obligation to Income Ratio). It returns an instant **Eligible / Borderline / Not
 Eligible** verdict, the proposed EMI, and a one-line reason to read to the customer —
 *before* any full credit check. If it's a "no", it offers the largest loan they *can* get.
 
+### 🔗 Live demo — https://loan-emi-eligibility-pre-screener.onrender.com
+*(Free host — the first visit may take ~30–50s to wake up, then it's fast.)*
+
 > *LoanLens is the product name; **FOIR** is the banking metric it's built on.*
 
 **Stack:** Java 21 · Spring Boot 3 (Maven) · Spring Security + H2 (user accounts) ·

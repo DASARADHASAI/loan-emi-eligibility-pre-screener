@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LoanLens — Team Presentation Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #23221d;
+      --dim: #5f5c52;
+      --faint: #8a8678;
+      --brand: #c96442;
+      --brand-dark: #a34a2f;
+      --green: #3f8f5b;
+      --amber: #a06a1c;
+      --red: #bd4034;
+      --cream: #f7f5ef;
+      --line: #e2ddd0;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--ink);
+      font-size: 11pt;
+      line-height: 1.5;
+      background: #fff;
+    }
+    .page { max-width: 800px; margin: 0 auto; padding: 24px 30px 60px; }
+
+    h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+    h2 { font-size: 19pt; margin: 30px 0 4px; padding-top: 14px; border-top: 2px solid var(--brand); }
+    h3 { font-size: 13pt; margin: 18px 0 6px; }
+    p { margin: 8px 0; }
+    a { color: var(--brand-dark); }
+    em { color: var(--brand-dark); font-style: italic; }
+    strong { font-weight: 600; }
+    code, .mono { font-family: var(--mono); font-size: 0.9em; }
+
+    /* cover */
+    .cover { text-align: left; padding: 8px 0 4px; }
+    .logo { display: inline-flex; align-items: center; gap: 12px; }
+    .logo .mark {
+      width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center;
+      background: linear-gradient(150deg, #e8a184, var(--brand));
+    }
+    .logo .mark svg { width: 24px; height: 24px; }
+    .logo .name { font-family: var(--serif); font-weight: 700; font-size: 20pt; }
+    .cover h1 { font-size: 30pt; line-height: 1.05; margin: 16px 0 6px; }
+    .cover .sub { color: var(--dim); font-size: 12pt; }
+    .pitch {
+      margin: 18px 0 6px; padding: 16px 18px; border-radius: 12px;
+      background: color-mix(in srgb, var(--brand) 9%, #fff);
+      border: 1px solid color-mix(in srgb, var(--brand) 30%, #fff);
+      border-left: 4px solid var(--brand);
+      font-size: 12pt;
+    }
+    .pitch b { color: var(--brand-dark); }
+
+    /* tables */
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 10pt; page-break-inside: auto; }
+    th, td { text-align: left; padding: 8px 10px; border: 1px solid var(--line); vertical-align: top; }
+    th { background: var(--cream); font-weight: 600; font-size: 9pt; text-transform: uppercase; letter-spacing: 0.04em; color: var(--dim); }
+    tr { page-break-inside: avoid; }
+    td b, td strong { color: var(--ink); }
+
+    /* speaker cards */
+    .speaker {
+      margin: 14px 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+      page-break-inside: avoid;
+    }
+    .speaker__head {
+      background: var(--cream); padding: 10px 16px; border-bottom: 1px solid var(--line);
+      font-family: var(--serif); font-weight: 600; font-size: 12pt;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .speaker__badge {
+      background: var(--brand); color: #fff; font-family: var(--sans); font-weight: 700;
+      font-size: 9pt; padding: 3px 9px; border-radius: 999px;
+    }
+    .speaker__body { padding: 6px 18px 14px; }
+    .speaker__body p { margin: 10px 0; }
+    .speaker__body ul { margin: 8px 0; padding-left: 20px; }
+    .speaker__body li { margin: 5px 0; }
+
+    .handover {
+      margin: 10px 0 2px; padding: 10px 14px; border-radius: 10px;
+      background: color-mix(in srgb, var(--brand) 8%, #fff);
+      border-left: 3px solid var(--brand);
+      font-style: italic; color: var(--brand-dark); font-size: 10.5pt;
+    }
+    .handover::before { content: "↪ "; font-style: normal; }
+
+    .formula {
+      font-family: var(--mono); font-size: 10pt; background: var(--cream);
+      border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; margin: 10px 0;
+    }
+    .bands { display: flex; gap: 8px; margin: 10px 0; flex-wrap: wrap; }
+    .band { padding: 6px 12px; border-radius: 8px; font-size: 10pt; font-weight: 600; border: 1px solid var(--line); border-left-width: 4px; }
+    .band.g { border-left-color: var(--green); color: var(--green); }
+    .band.a { border-left-color: var(--amber); color: var(--amber); }
+    .band.r { border-left-color: var(--red); color: var(--red); }
+
+    .flow {
+      margin: 10px 0; padding: 12px 14px; border-radius: 10px; background: var(--cream);
+      border: 1px dashed var(--line); font-size: 10pt;
+    }
+    .qa { margin: 10px 0; }
+    .qa .q { font-weight: 600; color: var(--ink); margin-top: 12px; }
+    .qa .a { color: var(--dim); margin-top: 2px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+    .chip { padding: 6px 12px; border-radius: 999px; background: var(--cream); border: 1px solid var(--line); font-size: 10pt; }
+    .chip b { color: var(--brand-dark); }
+
+    .note { color: var(--faint); font-size: 9.5pt; font-style: italic; margin-top: 20px; }
+    .break { page-break-before: always; }
+    ul.tight li { margin: 4px 0; }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- COVER -->
+    <div class="cover">
+      <div class="logo">
+        <span class="mark"><svg viewBox="0 0 32 32"><path d="M6 22a10 10 0 1 1 20 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="22" r="2.5" fill="#fff"/></svg></span>
+        <span class="name">LoanLens</span>
+      </div>
+      <h1>Team Presentation Kit</h1>
+      <p class="sub">A ready-to-read script for a 4-member hackathon presentation — plus cheat-sheets for the questions judges love to ask.</p>
+      <div class="pitch">
+        <b>The 30-second pitch:</b> LoanLens tells a bank's call-centre agent, in <b>one second</b>,
+        whether a loan applicant <em>can</em> qualify — using the banking rule called <b>FOIR</b> — and
+        if they can't, it instantly shows the <b>biggest loan they can get</b>. It stops agents wasting
+        calls on applicants who were never going to qualify.
+      </div>
+    </div>
+
+    <!-- 1. TEAM & TIMING -->
+    <h2>1 · Team, order &amp; timing</h2>
+    <p>Total time <strong>~7–8 minutes</strong> · four speakers · roughly <strong>~1.5–2 min each</strong>.
+    Finish your part, then say the one bridge sentence that names the next speaker.</p>
+    <table>
+      <thead><tr><th>#</th><th>Speaker</th><th>Section</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><b>[Member 1]</b></td><td>Welcome + the problem + <em>What is FOIR</em> (simple)</td></tr>
+        <tr><td>2</td><td><b>[Member 2]</b></td><td>Live demo — the product &amp; the wow features</td></tr>
+        <tr><td>3</td><td><b>[Member 3]</b></td><td>The Core-Java engine — which Java topics, why &amp; where</td></tr>
+        <tr><td>4</td><td><b>[Member 4]</b></td><td>The connectors (Spring Boot, REST, database, security) + closing</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 2. FULL SCRIPT -->
+    <h2>2 · The full script</h2>
+
+    <div class="speaker">
+      <div class="speaker__head"><span class="speaker__badge">Speaker 1</span> Welcome + Problem + What is FOIR</div>
+      <div class="speaker__body">
+        <p>Good [morning/afternoon] everyone. We are <strong>Team [Name]</strong>, and our project is <strong>LoanLens</strong>.</p>
+        <p>Picture a call-centre agent at a bank. All day, people call asking for loans. The problem is simple but expensive: the agent spends 10–15 minutes collecting details from someone who was <strong>never going to qualify</strong> — a waste of time for the agent <em>and</em> the customer.</p>
+        <p>Banks decide who qualifies using a rule called <strong>FOIR — Fixed Obligation to Income Ratio</strong>. In plain words, FOIR is <strong>the share of your monthly income that already goes to paying loan EMIs</strong>. For example: if you earn ₹1,00,000 a month and already pay ₹47,000 in EMIs, your FOIR is <strong>47%</strong>. Banks approve when this stays <strong>under a limit — usually 50%</strong>.</p>
+        <p>LoanLens puts this rule at the agent's fingertips. Enter a few numbers and, in one second, you get a clear <strong>Eligible / Borderline / Not-eligible</strong> answer — <em>before</em> wasting any time on a full credit check.</p>
+        <div class="handover">To show you how simple and powerful that is, I'll hand over to <strong>[Member 2]</strong> for a live demo.</div>
+      </div>
+    </div>
+
+    <div class="speaker">
+      <div class="speaker__head"><span class="speaker__badge">Speaker 2</span> Live demo</div>
+      <div class="speaker__body">
+        <p>Thanks, [Member 1]. Let me show you LoanLens in action. <em>(open the website)</em></p>
+        <p>This is our <strong>landing page</strong> — LoanLens is a complete web app. An agent <strong>signs up and logs in</strong> securely. <em>(log in)</em></p>
+        <p>Here's the <strong>screener</strong>. I'll enter a real applicant: income <strong>₹85,000</strong>, existing EMIs <strong>₹12,000</strong>, a <strong>₹5,00,000</strong> loan at <strong>10%</strong> for <strong>60 months</strong>. I click <strong>Screen applicant</strong> — instantly the dial sweeps to <strong>26.6%</strong>, turns <strong>green — Eligible</strong>, and gives the agent a <strong>line to read out</strong> to the customer.</p>
+        <p>Now the clever part. Let me try <strong>₹30,00,000</strong>. Now it's <strong>red — Not eligible, 63.7%</strong>. But instead of just saying "no", LoanLens makes a <strong>counter-offer</strong>: <em>"the largest loan they qualify for is ₹23,53,000"</em> — or <em>"keep the amount, but extend the tenure to 84 months."</em> One click applies it. <strong>That turns a rejection into a sale.</strong></p>
+        <p>I can also drag these <strong>what-if sliders</strong> and the dial moves <strong>live</strong>. One click on <strong>"Compare across all products"</strong> shows which loans they qualify for. And the <strong>Dashboard</strong> logs every screening, with the agent's approval rate and stats.</p>
+        <div class="handover">To explain the engine behind it and the Java we used, over to <strong>[Member 3]</strong>.</div>
+      </div>
+    </div>
+
+    <div class="speaker">
+      <div class="speaker__head"><span class="speaker__badge">Speaker 3</span> The Core-Java engine</div>
+      <div class="speaker__body">
+        <p>Thanks, [Member 2]. The heart of LoanLens is a <strong>pure Java engine</strong> — no framework, just core Java — so it's fast and we could test it thoroughly. Here are the Java concepts we used and <strong>why</strong>:</p>
+        <ul>
+          <li>We use <strong>primitive types</strong> — <code>double</code> for money and ratios, <code>int</code> for tenure. Deliberate: the classic bug is using <code>int</code> and losing decimals in division. We use <code>double</code> everywhere, with <strong>explicit type casting</strong> where needed.</li>
+          <li>The verdict is chosen with an <strong>if-else-if ladder</strong>: FOIR ≤ 50 → Eligible, else ≤ 55 → Borderline, else Not eligible.</li>
+          <li>The message is built with a <strong><code>switch</code> expression</strong> on an <strong><code>enum</code></strong> called <code>Verdict</code> — type-safe and clean.</li>
+          <li>Money uses <strong><code>BigDecimal</code> + <code>RoundingMode</code></strong> — banker's rounding — so our EMI matches the bank's core systems exactly.</li>
+          <li>We used <strong><code>record</code>s</strong> for data like <code>ScreenInputs</code> and <code>ScreenResult</code> — immutable and concise.</li>
+          <li>We <strong>validate zero/negative inputs</strong> before any maths, so it never crashes.</li>
+          <li>All rates live in <strong>one central config class</strong> — if RBI changes rates, we edit one place.</li>
+          <li>And we proved it with <strong>24 JUnit tests</strong>.</li>
+        </ul>
+        <p>So we've used variables, primitive types, operators, type casting, if-else, switch, enums, records, collections and exception handling — the full core-Java toolkit.</p>
+        <div class="handover">Now <strong>[Member 4]</strong> will explain how all these pieces connect together.</div>
+      </div>
+    </div>
+
+    <div class="speaker">
+      <div class="speaker__head"><span class="speaker__badge">Speaker 4</span> Connectors + Closing</div>
+      <div class="speaker__body">
+        <p>Thanks, [Member 3]. So how does the Java talk to the browser and the database? Through a few key <strong>connectors</strong>:</p>
+        <ul>
+          <li><strong>Spring Boot</strong> is the framework that runs everything — it starts a web server and wires our classes together.</li>
+          <li>Our Java logic is exposed as <strong>REST APIs</strong>. When the agent clicks Screen, the browser sends a small <strong>JSON</strong> request using <code>fetch()</code> to <code>/api/screen</code>; Spring runs the engine and sends JSON back. <strong>That JSON-over-HTTP is the connector between the front-end and the Java.</strong></li>
+          <li>To save data we use <strong>Spring Data JPA with Hibernate</strong> — it maps Java objects to database tables, so we write almost <strong>no SQL</strong>.</li>
+          <li>The database is <strong>H2</strong>, reached through a <strong>JDBC</strong> connection pool — it stores users and every screening.</li>
+          <li><strong>Spring Security</strong> handles sign-up and login — passwords are stored safely with <strong>BCrypt</strong> hashing.</li>
+          <li>And <strong>Maven</strong> ties all these libraries together as our build tool.</li>
+        </ul>
+        <p><strong>To sum up:</strong> LoanLens solves a real banking problem — it saves agents' time, turns rejections into offers, and it's a complete, secure, full-stack app built on solid core Java.</p>
+        <div class="handover"><strong>Thank you</strong> — we'd be happy to take your questions.</div>
+      </div>
+    </div>
+
+    <!-- 3. HANDOVER CHEAT SHEET -->
+    <h2>3 · Handover cheat-sheet</h2>
+    <p>Just memorize your closing sentence:</p>
+    <ul class="tight">
+      <li><b>1 → 2:</b> <em>"To show you how simple and powerful that is, I'll hand over to [Member 2] for a live demo."</em></li>
+      <li><b>2 → 3:</b> <em>"To explain the engine behind it and the Java we used, over to [Member 3]."</em></li>
+      <li><b>3 → 4:</b> <em>"Now [Member 4] will explain how all these pieces connect together."</em></li>
+      <li><b>4 → close:</b> <em>"Thank you — we'd be happy to take your questions."</em></li>
+    </ul>
+
+    <!-- 4. WHAT IS FOIR -->
+    <h2 class="break">4 · What is FOIR? (the simple version)</h2>
+    <p><strong>FOIR = Fixed Obligation to Income Ratio.</strong> It is <em>the percentage of monthly income already going to loan EMIs</em>.</p>
+    <div class="formula">FOIR  =  (existing EMIs  +  the new loan's EMI)  ÷  monthly income  × 100</div>
+    <ul class="tight">
+      <li><strong>Example:</strong> income ₹1,00,000, total EMIs ₹47,000 → FOIR = <strong>47%</strong> → under the 50% limit → <strong>Eligible</strong>.</li>
+      <li><strong>Lower is safer</strong> — a high FOIR means most of the salary is already committed.</li>
+      <li>It's a <strong>real</strong> term used by SBI, HDFC, ICICI and most Indian lenders. (Internationally it's called <strong>DTI — Debt-to-Income</strong>.)</li>
+    </ul>
+    <div class="bands">
+      <span class="band g">≤ 50% · Eligible</span>
+      <span class="band a">50–55% · Borderline (review)</span>
+      <span class="band r">&gt; 55% · Not eligible</span>
+    </div>
+
+    <!-- 5. JAVA TOPICS -->
+    <h2>5 · Core-Java topics we used — what, where &amp; why</h2>
+    <table>
+      <thead><tr><th>Java topic</th><th>Where we used it</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><b>Primitive types</b> (double, int, boolean)</td><td>FoirEngine, Money</td><td>double keeps money/ratios exact; int for whole months</td></tr>
+        <tr><td><b>Type casting</b></td><td>FoirEngine.fmt() — (long) value</td><td>Format a threshold cleanly (50.0 → "50")</td></tr>
+        <tr><td><b>Operators</b> (arithmetic, relational, logical)</td><td>EMI formula &amp; validation</td><td>Compute EMI, compare FOIR to limits</td></tr>
+        <tr><td><b>if-else-if ladder</b></td><td>FoirEngine.screen()</td><td>Choose Eligible / Borderline / Not-eligible</td></tr>
+        <tr><td><b>switch expression</b></td><td>FoirEngine.screen()</td><td>Build the reason text from the verdict</td></tr>
+        <tr><td><b>enum</b></td><td>Verdict</td><td>Type-safe outcomes instead of loose strings</td></tr>
+        <tr><td><b>record</b> (immutable data)</td><td>ScreenInputs, ScreenResult, PolicyConfig, Advice, DTOs</td><td>Concise, safe data carriers</td></tr>
+        <tr><td><b>Classes &amp; objects / OOP</b></td><td>Entities (AppUser, Screening), services</td><td>Encapsulation with getters/setters</td></tr>
+        <tr><td><b>Static utility methods</b></td><td>FoirEngine, Money, Advisor</td><td>Pure, stateless logic that's easy to test</td></tr>
+        <tr><td><b>BigDecimal + RoundingMode</b></td><td>Money.round2()</td><td>Banker's rounding — matches bank ledgers</td></tr>
+        <tr><td><b>Math library</b></td><td>Math.pow, log, round, floor</td><td>EMI formula &amp; solving tenure</td></tr>
+        <tr><td><b>Collections + Generics</b></td><td>List&lt;RateSlab&gt;, Optional&lt;AppUser&gt;, JpaRepository&lt;…&gt;</td><td>Type-safe lists &amp; lookups</td></tr>
+        <tr><td><b>Exception handling</b></td><td>try/catch on DB save; return-error design</td><td>Never crash the verdict on a DB hiccup</td></tr>
+        <tr><td><b>String.format / String methods</b></td><td>reason text, email.trim().toLowerCase()</td><td>Formatting &amp; normalising input</td></tr>
+        <tr><td><b>Interfaces</b></td><td>JpaRepository, UserDetailsService</td><td>Plug into Spring's contracts</td></tr>
+        <tr><td><b>java.time.Instant, UUID</b></td><td>timestamps &amp; IDs</td><td>Unique, sortable records</td></tr>
+        <tr><td><b>JUnit 5 testing</b></td><td>FoirEngineTest, MoneyTest, AdvisorTest</td><td>24 tests prove the maths</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 6. CONNECTORS -->
+    <h2 class="break">6 · Connectors we used — what connects what, and how</h2>
+    <table>
+      <thead><tr><th>Connector</th><th>What it connects</th><th>How we used it</th></tr></thead>
+      <tbody>
+        <tr><td><b>Spring Boot</b></td><td>Everything</td><td>Embedded web server + dependency injection</td></tr>
+        <tr><td><b>Spring MVC / REST</b></td><td>Browser ↔ Java</td><td>@RestController + @PostMapping expose our logic as HTTP endpoints</td></tr>
+        <tr><td><b>fetch() + JSON (Jackson)</b></td><td>Front-end ↔ Back-end</td><td>JS sends JSON to /api/screen; Jackson converts Java ↔ JSON</td></tr>
+        <tr><td><b>Spring Data JPA + Hibernate</b></td><td>Java objects ↔ DB tables</td><td>JpaRepository gives save/find with almost no SQL</td></tr>
+        <tr><td><b>JDBC + H2 database</b></td><td>App ↔ storage</td><td>Connection pool to an on-disk H2 DB for users &amp; screenings</td></tr>
+        <tr><td><b>Spring Security + BCrypt</b></td><td>Login ↔ app</td><td>Gates pages, hashes passwords, manages the session</td></tr>
+        <tr><td><b>Maven</b></td><td>App ↔ libraries</td><td>Build tool + dependency manager</td></tr>
+      </tbody>
+    </table>
+    <div class="flow">
+      <b>One flow, end to end (great to say aloud):</b><br />
+      Agent clicks Screen → <code>fetch()</code> sends JSON to <code>/api/screen</code> → Spring routes it to
+      <code>ScreenController</code> → the service runs the pure <code>FoirEngine</code> → the result is saved to H2
+      through JPA → Jackson turns it back into JSON → the JavaScript animates the dial.
+    </div>
+
+    <!-- 7. FEATURES -->
+    <h2>7 · Features that impress in hackathons</h2>
+    <ul class="tight">
+      <li>🎯 <b>Smart Counter-Offer</b> — turns a "no" into the biggest loan they <em>can</em> get (we invert the EMI formula — real algorithm depth).</li>
+      <li>📊 <b>Animated FOIR risk dial</b> — a live gauge sweeping green → amber → red.</li>
+      <li>🎚️ <b>Live what-if sliders</b> — drag loan/tenure, the verdict updates instantly.</li>
+      <li>🔀 <b>Multi-product comparison</b> — screen against every loan product at once.</li>
+      <li>📈 <b>Analytics dashboard</b> — approval rate, average FOIR, eligible/borderline/rejected split.</li>
+      <li>🔐 <b>Real full-stack</b> — sign-up/login, hashed passwords, a live database.</li>
+      <li>🎨 <b>Premium, distinctive design</b> — warm and editorial, not a template.</li>
+      <li>🛡️ <b>Handles the tricky watch-outs</b> — precision, rounding, zero/negative inputs, no hard-coded rates.</li>
+    </ul>
+
+    <!-- 8. Q&A -->
+    <h2 class="break">8 · Likely judge questions — and your answers</h2>
+    <div class="qa">
+      <p class="q">Q: Which Java topics did you use?</p>
+      <p class="a">Primitive types, type casting, operators, if-else, switch, enums, records, classes/OOP, static utility methods, BigDecimal rounding, collections &amp; generics, exception handling, interfaces, and JUnit tests. (See §5.)</p>
+      <p class="q">Q: Why Spring Boot and not a plain console program?</p>
+      <p class="a">The logic is plain core Java. Spring Boot lets a real agent use it in a browser and lets us demo it — with REST APIs, a database, and login — with very little boilerplate.</p>
+      <p class="q">Q: How does the counter-offer actually work?</p>
+      <p class="a">We invert the EMI maths. The most the applicant can afford is (50% of income − existing EMIs). From that max EMI we solve the formula backwards for the biggest principal; and we solve it for n to find the tenure that qualifies.</p>
+      <p class="q">Q: How do you avoid the integer-division / precision bug?</p>
+      <p class="a">We compute everything in double and only round for display. Money rounding goes through one BigDecimal helper using banker's rounding, matching bank systems.</p>
+      <p class="q">Q: What happens if income is 0 or negative?</p>
+      <p class="a">Validation runs before any maths and returns a friendly error code — it never crashes or shows a wrong number.</p>
+      <p class="q">Q: Is it secure?</p>
+      <p class="a">Yes — Spring Security gates the app, passwords are BCrypt-hashed (never plain text), and the database file is not pushed to GitHub.</p>
+      <p class="q">Q: Which database, and can you change it?</p>
+      <p class="a">H2 (file-based, persists). Because we use JPA, we can switch to MySQL / PostgreSQL / Supabase by changing one config line.</p>
+      <p class="q">Q: Can rates change without redeploying?</p>
+      <p class="a">All rates and thresholds are centralized in TariffConfig — one edit updates the whole tool. (Next step: an admin screen to edit them live.)</p>
+      <p class="q">Q: Is FOIR a real thing?</p>
+      <p class="a">Yes — it's the standard rule Indian banks and NBFCs use for loan eligibility.</p>
+      <p class="q">Q: What would you build next?</p>
+      <p class="a">An AI feature that explains each verdict to the customer in plain language, an admin panel for rates, and more loan products.</p>
+    </div>
+
+    <!-- 9. NUMBERS -->
+    <h2>9 · Numbers to remember</h2>
+    <div class="chips">
+      <span class="chip"><b>24</b> JUnit tests, all passing</span>
+      <span class="chip"><b>3</b> verdict bands — 50% &amp; 55%</span>
+      <span class="chip"><b>5</b> loan products, compared in one click</span>
+      <span class="chip"><b>~5 sec</b> full agent workflow</span>
+      <span class="chip"><b>1</b> config file for all rates</span>
+    </div>
+
+    <p class="note">Tip: whoever is nervous should take Speaker 1 or 4 — they're the most scripted. Speakers 2 and 3 just narrate the demo and the tables above.</p>
+
+  </div>
+</body>
+</html>
