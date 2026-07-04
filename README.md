@@ -129,3 +129,21 @@ All `/api/**` endpoints require a logged-in session (use the site to sign up / l
 | GET | `/api/me` | The logged-in agent's name/email |
 
 Auth: `POST /signup` (name, email, password) · `POST /login` (email, password) · `POST /logout`.
+
+---
+
+## Deploy it live (Render)
+
+The repo ships a `Dockerfile`, so any container host works. Easiest is **Render** (free):
+
+1. Push this repo to GitHub (already done).
+2. Go to **[render.com](https://render.com)** → sign up with GitHub.
+3. **New +** → **Web Service** → connect the `loan-emi-eligibility-pre-screener` repo.
+4. Render detects the `Dockerfile` → **Runtime: Docker**, **Instance type: Free** → **Create Web Service**.
+5. Wait ~3–5 min for the build. Your app goes live at `https://<name>.onrender.com`.
+
+*(Or use the included `render.yaml`: **New + → Blueprint → connect repo → Apply**.)*
+
+The app binds to Render's `PORT` automatically. **Note:** the free tier sleeps after ~15 min
+idle (wakes in ~30s), and the H2 database is ephemeral — accounts reset on each redeploy/restart.
+For persistent accounts, add a Render PostgreSQL instance and point `SPRING_DATASOURCE_*` at it.

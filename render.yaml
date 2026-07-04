@@ -1,0 +1,10 @@
+# Render Blueprint — one-click deploy of the LoanLens Spring Boot app.
+# In Render: New + → Blueprint → connect this repo → Apply.
+services:
+  - type: web
+    name: loanlens
+    runtime: docker
+    plan: free
+    region: singapore        # closest free region to India
+    healthCheckPath: /
+    autoDeploy: true
